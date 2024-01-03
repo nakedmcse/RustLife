@@ -44,23 +44,23 @@ impl CellGenerations for Cell {
             return true;
         }
 
-        if self.live {
+        return if self.live {
             match live_neighbour_count {
                 1 => {
                     // 1 neighbor only - cell dies
-                    return false;
+                    false
                 },
                 2|3 => {
                     // 2 or 3 neighbors - cell lives
-                    return true;
+                    true
                 },
                 _ => {
                     // more than 3 neighbors - cell dies
-                    return false;
+                    false
                 }
             }
         } else {
-            return false;
+            false
         }
     }
 }
